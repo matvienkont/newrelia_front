@@ -1,0 +1,44 @@
+.header-flex-wrapper
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo-wrapper {
+    padding-left: 20px;
+    background: white;
+    box-sizing: border-box;
+}
+  
+.header-logo {
+    width: 16.24vw;
+    height: 7vw;
+    min-width: 176px;
+    min-height: 76px;
+    background-image: url("../../media/logo_min.png");
+    background-size: contain;
+    background-repeat: repeat-y;
+}
+
+.header-links-container ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-links-container ul>li {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 20px;
+}
+
+.header-links-container ul>li:last-child {
+    padding-right: 120px;
+}
+
+.header-links-container ul>li>a {
+    text-decoration: none;
+    color: black;
+}
