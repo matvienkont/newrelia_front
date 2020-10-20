@@ -6,7 +6,7 @@
 }
 
 .logo-wrapper {
-    padding-left: 20px;
+    padding: 20px 40px;
     background: white;
     box-sizing: border-box;
 }
@@ -21,24 +21,126 @@
     background-repeat: repeat-y;
 }
 
-.header-links-container ul {
+.header-links-container {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.links-wrapper {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-.header-links-container ul>li {
-    padding-left: 60px;
+.links-wrapper>li {
     padding-right: 60px;
-    padding-top: 20px;
 }
 
-.header-links-container ul>li:last-child {
-    padding-right: 120px;
+.links-wrapper>li:last-child {
+    padding-right: 40px;
 }
 
-.header-links-container ul>li>a {
+.links-wrapper>li>a {
     text-decoration: none;
     color: black;
+    font: 24px sans-serif;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+}
+
+.burger {
+    display: block;
+}
+
+.burger div {
+    width: 30px;
+    height: 5px;
+    background-color: #2F365E;
+    margin: 4px;
+}
+
+.burgerWrapper {
+    margin-right: 10%;
+    display: none;
+    align-items: center;
+}
+
+@media screen and (max-width: 680px)
+{
+    .links-wrapper {
+        position: absolute;
+        height: calc(100% - 156px);
+        right: 0;
+        top: 116px;
+        background-color: #DADADA;
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 40px;
+        transform: translateX(100%);
+    }
+
+    .links-wrapper>li {
+        padding-right: 0px;
+        padding-bottom: 80px;
+        opacity: 0;
+    }
+
+    .links-wrapper>li:last-child {
+        padding-right: 0px;
+    }
+
+    .header-flex-wrapper {
+        background-color: #DADADA;
+    }
+
+    .logo-wrapper {
+        background-color: #DADADA;
+        padding-right: 0px;
+    }
+
+    .burgerWrapper {
+        display: flex;
+    }
+}
+
+.add-transition {
+    transition: transform 0.5s ease-in;
+}
+
+.header-links-mobile-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinksFadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0px)
+    }
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+@keyframes navLinksFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.resize-animation-stopper * {
+    animation: none !important;
+    transition: none !important;
 }
