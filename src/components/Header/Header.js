@@ -19,22 +19,25 @@ const Header = () =>
                 <div className="header-links-container">
                     <ul className="links-wrapper">
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/" onClick={() => toggleBurgerMenu(true)}>Home</Link>
                         </li>
                         <li>
-                            <Link to="/workspace">Workspace</Link>
+                            <Link to="/workspace" onClick={() => toggleBurgerMenu(true)}>Workspace</Link>
                         </li>
                         <li>
-                            <Link to="/login">Login</Link>
+                            <Link to="/login" onClick={() => toggleBurgerMenu(true)}>Login</Link>
                         </li>
                     </ul>
                 </div>
-                <div className="burgerWrapper" onClick={toggleBurgerMenu}>
-                    <div className="burger">
-                            <div className="line1"></div>
-                            <div className="line2"></div>
-                            <div className="line3"></div>
-                    
+                <div className="menuContainer">
+                    <div className="closeMenuField" onClick={toggleBurgerMenu}></div>
+                    <div className="burgerWrapper" onClick={() => toggleBurgerMenu(false)}>
+                        <div className="burger">
+                                <div className="line1"></div>
+                                <div className="line2"></div>
+                                <div className="line3"></div>
+                        
+                        </div>
                     </div>
                 </div>
             </div>      
