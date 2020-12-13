@@ -4,6 +4,7 @@ import { BrowserRouter as Router,
 		Route, 
 		Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Workspace from "./components/Workspace/Workspace";
 
 function App() {
 	return (
@@ -39,13 +40,6 @@ const Login = () =>
 {
 	return (
 	<h2>Login Page</h2>
-		);
-}
-
-const Workspace = () =>
-{
-	return (
-	<h2>Workspace PAGE</h2>
 		);
 }
 

@@ -30,7 +30,7 @@ const Header = () =>
                     </ul>
                 </div>
                 <div className="menuContainer">
-                    <div className="closeMenuField" onClick={toggleBurgerMenu}></div>
+                    <div className="closeMenuField" onClick={() => toggleBurgerMenu(false)}></div>
                     <div className="burgerWrapper" onClick={() => toggleBurgerMenu(false)}>
                         <div className="burger">
                                 <div className="line1"></div>

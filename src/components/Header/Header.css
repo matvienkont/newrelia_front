@@ -50,6 +50,7 @@
     font: 24px sans-serif;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 2px;
+    z-index: 1;
 }
 
 .burger {
@@ -92,12 +93,17 @@
         justify-content: flex-start;
         padding-top: 40px;
         transform: translateX(100%);
+        z-index: 1;
     }
 
     .links-wrapper>li {
         padding-right: 0px;
         padding-bottom: 80px;
         opacity: 0;
+    }
+
+    .links-wrapper>li>a {
+        cursor: pointer
     }
 
     .links-wrapper>li:last-child {

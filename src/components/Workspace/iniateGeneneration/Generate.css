@@ -1,0 +1,22 @@
+.generate-button-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
+}
+
+.generate-button {
+    margin-top: 200px;
+
+    cursor: pointer;
+    display: flex;
+    width: 10%;
+    height: 100%;
+    background-color: cadetblue;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+}
