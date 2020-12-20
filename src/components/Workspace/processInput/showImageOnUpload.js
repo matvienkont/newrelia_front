@@ -1,9 +1,7 @@
-const showImageOnUpload = (input) => 
+const showImageOnUpload = (inputId, imageId) => 
 {
-    const selectedFile = document.getElementById("fileInput").files[0];
-    console.log(selectedFile);
-    const imageInput = document.getElementById("imageInput");
-    console.log(imageInput);
+    const selectedFile = document.getElementById(inputId).files[0];
+    const imageInput = document.getElementById(imageId);
 
     imageInput.src = URL.createObjectURL(selectedFile);
 }

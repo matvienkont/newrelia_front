@@ -1,11 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import showImageOnUpload from "./processInput/showImageOnUpload";
-import Generate from "./iniateGeneneration/Generate";
+import React, { useEffect, useRef, useState } from "react"
+import Generate from "./components/Generate";
 import "./Workspace.css"
+import customFileInput from "./processInput/custom-file-input" 
+import InputFields from "./components/InputFields"
+
 
 const Workspace = () =>
 {
     var [socketConnected, setSocketConnection] = useState(false);
+    var [inputFiles, setInputFiles] = useState([null, null]);
 
     var endpoint = "ws://127.0.0.1:8000/websocket";
     const socket = useRef(null);
@@ -29,18 +32,23 @@ const Workspace = () =>
             console.log("message", e);
         };
 
+        customFileInput(document, window, 0)
+
         return () => socket.current.close();
     }, [])
 
 
     return (
             <React.Fragment>
-                <input id="fileInput" type="file" onChange={() => showImageOnUpload(this)} accept='image/*'/>
-                <div id="collage-container"></div>
-                <Generate 
-                    socket={socket}
-                    socketConnected={socketConnected}
-                />
+                <div className="wrapper">
+                    <InputFields setInputFiles={setInputFiles.bind(this)} inputFiles={inputFiles}/>
+                    <div id="collage-container"></div>
+                    <Generate 
+                        socket={socket}
+                        socketConnected={socketConnected}
+                        inputFiles={inputFiles}
+                    />
+                </div>
             </React.Fragment>    
 		);
 }
