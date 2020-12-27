@@ -3,6 +3,8 @@ import Generate from "./components/Generate";
 import "./Workspace.css"
 import customFileInput from "./processInput/custom-file-input" 
 import InputFields from "./components/InputFields"
+import Result from "../../media/result.png"
+import { SlidersCompound } from "./components/SlidersCompound"
 
 
 const Workspace = () =>
@@ -42,6 +44,14 @@ const Workspace = () =>
             <React.Fragment>
                 <div className="wrapper">
                     <InputFields setInputFiles={setInputFiles.bind(this)} inputFiles={inputFiles}/>
+                    <div className="middle-container">
+                        <div className="sliders-container">
+                            <SlidersCompound />
+                        </div>
+                        <div className="output-wrapper">
+                            <img className="output-img" src={Result}/>
+                        </div>
+                    </div>
                     <div id="collage-container"></div>
                     <Generate 
                         socket={socket}
@@ -49,7 +59,7 @@ const Workspace = () =>
                         inputFiles={inputFiles}
                     />
                 </div>
-            </React.Fragment>    
+            </React.Fragment>
 		);
 }
 

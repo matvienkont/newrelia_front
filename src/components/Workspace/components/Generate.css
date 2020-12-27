@@ -9,14 +9,16 @@
 }
 
 .generate-button {
-    margin-top: 200px;
-
+    margin-top: 20px;
+    margin-bottom: 20px;
     cursor: pointer;
     display: flex;
     width: 10%;
     height: 100%;
+    padding: 20px 30px;
     background-color: cadetblue;
     border-radius: 50px;
     justify-content: center;
     align-items: center;
+    font-size: larger;
 }

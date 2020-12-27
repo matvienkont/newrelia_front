@@ -1,6 +1,6 @@
-import React from 'react'
-import InputFields from '../InputFields';
 import axios from "axios"
+import appendChildImg from "../../socketEvents/AppendChildImg"
+
 
 const sendServerRequest = async (socket, socketConnected, inputFiles) =>
 {
@@ -35,11 +35,6 @@ const sendServerRequest = async (socket, socketConnected, inputFiles) =>
               .then(function() {
                   console.log("ZC")
               })
-            /*axios.put("localhost:8000/api/",
-                formData,
-                {headers: {
-                  "Content-Type": "multipart/form-data"
-                }})*/
         }
 
     }
@@ -48,19 +43,6 @@ const sendServerRequest = async (socket, socketConnected, inputFiles) =>
     {
         appendChildImg(e.data);
     }
-}
-
-const appendChildImg = (data) => {
-    var container = document.getElementById("collage-container");
-    console.log(container);
-    var img = document.createElement("img")
-    img.src = `data:image/jpeg;base64,${data}`
-    img.className = 'img-style'
-
-    console.log(img);
-    container.appendChild(img)
-
-    //img.src = `data:image/jpeg;base64,${data}`;
 }
 
 export default sendServerRequest;

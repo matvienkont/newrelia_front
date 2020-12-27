@@ -1,8 +1,3 @@
-.img-style {
-    width: 250px;
-    height: 250px;
-}
-
 #input-container {
     display: flex;
     flex-direction: row;
@@ -14,8 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 2%;
     margin-right: 10%;
     margin-left: 10%;
 }
@@ -108,4 +102,16 @@
 }
 .box {
     padding-top: 10px;
+}
+
+#style-img, #content-img {
+    -webkit-box-shadow: 10px 11px 5px -6px rgba(0,0,0,0.45);
+    -moz-box-shadow: 10px 11px 5px -6px rgba(0,0,0,0.45);
+    box-shadow: 10px 11px 5px -6px rgba(0,0,0,0.45);
+}
+
+.hide-shadow {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
