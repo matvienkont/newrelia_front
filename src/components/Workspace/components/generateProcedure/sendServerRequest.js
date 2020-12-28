@@ -2,7 +2,7 @@ import axios from "axios"
 import appendChildImg from "../../socketEvents/AppendChildImg"
 
 
-const sendServerRequest = async (socket, socketConnected, inputFiles) =>
+const sendServerRequest = async (socket, socketConnected, inputFiles, options) =>
 {
     console.log("HELLO")
     if(socketConnected)
@@ -13,12 +13,14 @@ const sendServerRequest = async (socket, socketConnected, inputFiles) =>
 
         let absentImage = false
         inputFiles.map(element => !element ? absentImage = true : absentImage)
-        console.log(absentImage)
+
+        console.log(inputFiles);
 
         if(!absentImage)
         {
             const formData = new FormData();
-            formData.append("file", inputFiles[0])
+            inputFiles.map(element => formData.append("file", element))
+            formData.append("data", JSON.stringify(options))
 
             console.log(formData)
             axios.put("http://localhost:8000/api/", formData, {headers: {
