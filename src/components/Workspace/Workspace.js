@@ -12,13 +12,14 @@ const Workspace = () =>
     var [socketConnected, setSocketConnection] = useState(false);
     var [inputFiles, setInputFiles] = useState([null, null]);
 
-    //
     const [checked, setChecked] = React.useState(false);
     const [pooling, setPooling] = React.useState('avg');
     const [cntWeight, setCntWeight] = React.useState(5);
     const [styleWeight, setStyleWeight] = React.useState(10000);
     const [TVWeight, setTVWeight] = React.useState(0.001);
     const [TemporalWeight, setTemporalWeight] = React.useState(200);
+
+    var channelName = '';
 
     var endpoint = "ws://127.0.0.1:8000/websocket";
     const socket = useRef(null);
@@ -71,6 +72,7 @@ const Workspace = () =>
                     </div>
                     <div id="collage-container"></div>
                     <Generate 
+                        channel={channelName}
                         socket={socket}
                         socketConnected={socketConnected}
                         inputFiles={inputFiles}

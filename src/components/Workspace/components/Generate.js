@@ -6,7 +6,8 @@ export const Generate = (props) =>
 {
     
     var {
-        socket, 
+        socket,
+        channelName,
         socketConnected,
         inputFiles,
         checked,

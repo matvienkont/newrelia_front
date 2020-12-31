@@ -4,17 +4,21 @@ import appendChildImg from "../../socketEvents/AppendChildImg"
 
 const sendServerRequest = async (socket, socketConnected, inputFiles, options) =>
 {
-    console.log("HELLO")
     if(socketConnected)
     {
+
         var data = { init: true }
         data = JSON.stringify(data)
         await socket.current.send(data)
 
-        let absentImage = false
-        inputFiles.map(element => !element ? absentImage = true : absentImage)
+        socket.current.onmessage = (e) => 
+        {
+            const socketData = JSON.parse(e.data);
+            options.channelName = socketData.channel_name;
+            appendChildImg(socketData.data);
 
-        console.log(inputFiles);
+            let absentImage = false
+        inputFiles.map(element => !element ? absentImage = true : absentImage)
 
         if(!absentImage)
         {
@@ -40,11 +44,10 @@ const sendServerRequest = async (socket, socketConnected, inputFiles, options) =
         }
 
     }
+        }
 
-    socket.current.onmessage = (e) => 
-    {
-        appendChildImg(e.data);
-    }
+
+        
 }
 
 export default sendServerRequest;
