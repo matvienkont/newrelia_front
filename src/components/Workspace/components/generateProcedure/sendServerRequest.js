@@ -18,6 +18,8 @@ const sendServerRequest = async (socket, socketConnected, inputFiles, options) =
             console.log(socketData);
             if(socketData.img) {
                 console.log('Image append came');
+                console.log(socketData.img_src);
+                appendChildImg(socketData.img_src);
                 return undefined;
             }
 

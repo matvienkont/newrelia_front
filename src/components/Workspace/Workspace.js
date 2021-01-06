@@ -67,7 +67,7 @@ const Workspace = () =>
                             />
                         </div>
                         <div className="output-wrapper">
-                            <img className="output-img" src={Result}/>
+                            <img id="output-image" className="output-img" src={Result}/>
                         </div>
                     </div>
                     <div id="collage-container"></div>
