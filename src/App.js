@@ -5,6 +5,7 @@ import { BrowserRouter as Router,
 		Switch } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Workspace from "./components/Workspace/Workspace";
+import { NotFound } from './components/NotFound/NotFound';
 
 function App() {
 	return (
@@ -22,6 +23,10 @@ function App() {
 
 						<Route path="/login">
 							<Login />
+						</Route>
+						
+						<Route>
+							<NotFound />
 						</Route>
 					</Switch>
    			</div>

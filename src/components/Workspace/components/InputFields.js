@@ -16,7 +16,7 @@ export const InputFields = (props) =>
         <React.Fragment>
             <div id="input-container">
                 <div className="individual-input-wrappers" id="content-container">
-                    <img className="user-img" id="content-img" src={img_place_holder}/>
+                    <img className="user-img" id="content-img" src={img_place_holder} alt="user-img"/>
                     <div className="box">
                         <input type="file" name="file-5" id="file-5-content" className="inputfile inputfile-4" onChange={() => {
                                                                                                                                     showImageOnUpload("file-5-content", 
@@ -27,7 +27,7 @@ export const InputFields = (props) =>
                     </div>
                 </div>
                 <div className="individual-input-wrappers" id="style-container">
-                    <img className="user-img" id="style-img" src={img_place_holder}/>
+                    <img className="user-img" id="style-img" src={img_place_holder} alt="user-img"/>
                     <div className="box">
                         <input type="file" name="file-5" id="file-5-style" className="inputfile inputfile-4" onChange={() => { 
                                                                                                                                 showImageOnUpload("file-5-style", 

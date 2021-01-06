@@ -1,5 +1,3 @@
-'use strict';
-
 export default function customFileInput(document, window, index )
 {
 	console.log(document);
