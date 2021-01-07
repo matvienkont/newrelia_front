@@ -5,7 +5,8 @@ export const NotFound = () =>
 {
     return (
         <React.Fragment>
-            <h1 id="not-found-tag">Not Found</h1>
+            <a className="text-3d" href="#">404</a>
+            <h1 className="returnhome">Page is Missing, Click Code to Return Home</h1>
         </React.Fragment>
     );
 };
