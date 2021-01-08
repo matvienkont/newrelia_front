@@ -1,19 +1,30 @@
 import axios from "axios"
 import appendChildImg from "../../socketEvents/AppendChildImg"
-
+import { isLoading } from "./loadingIndicator";
 
 const sendServerRequest = async (socket, socketConnected, inputFiles, options) => {
     if (socketConnected) {
+        console.log(options);
         
+        const formattedOptions = {
+            'style_imgs': 'style.jpg',
+            'content_img': 'content.jpg',
+            'style_imgs_weights': options.styleWeight,
+            'tv_weight': options.TVWeight,
+            'temporal_weight': options.TemporalWeight,
+            'original_colors': options.checked,
+            'pooling_type': options.pooling,
+        }
+
         let data = { init: true }
         data = JSON.stringify(data)
         await socket.current.send(data)
 
         socket.current.onmessage = (e) => {
-            
 
             const socketData = JSON.parse(e.data);
-            options.channelName = socketData.channel_name;
+            
+            formattedOptions.channelName = socketData.channel_name;
             
             console.log(socketData);
             if(socketData.img) {
@@ -33,7 +44,8 @@ const sendServerRequest = async (socket, socketConnected, inputFiles, options) =
             if (!absentImage) {
                 const formData = new FormData();
                 inputFiles.map(element => formData.append("file", element))
-                formData.append("data", JSON.stringify(options))
+                console.log(options);
+                formData.append("data", JSON.stringify(formattedOptions))
 
                 console.log(formData)
                 axios.put("http://localhost:8000/api/", formData, {
@@ -46,6 +58,7 @@ const sendServerRequest = async (socket, socketConnected, inputFiles, options) =
                         data = JSON.stringify(data)
                         await socket.current.send(data)
                         console.log(response);
+                        isLoading(true);
                     })
                     .catch((error) => {
                         // handle error

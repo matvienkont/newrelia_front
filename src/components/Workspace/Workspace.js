@@ -14,7 +14,6 @@ const Workspace = () =>
 
     const [checked, setChecked] = React.useState(false);
     const [pooling, setPooling] = React.useState('avg');
-    const [cntWeight, setCntWeight] = React.useState(5);
     const [styleWeight, setStyleWeight] = React.useState(10000);
     const [TVWeight, setTVWeight] = React.useState(0.001);
     const [TemporalWeight, setTemporalWeight] = React.useState(200);
@@ -60,7 +59,6 @@ const Workspace = () =>
                                 setChecked={setChecked}
                                 pooling={pooling}
                                 setPooling={setPooling}
-                                setCntWeight={setCntWeight}
                                 setStyleWeight={setStyleWeight}
                                 setTVWeight={setTVWeight}
                                 setTemporalWeight={setTemporalWeight}
@@ -70,20 +68,21 @@ const Workspace = () =>
                             <img id="output-image" className="output-img" src={Result}/>
                         </div>
                     </div>
-                    <div id="collage-container"></div>
-                    <Generate 
-                        channel={channelName}
-                        socket={socket}
-                        socketConnected={socketConnected}
-                        inputFiles={inputFiles}
-                        checked={checked}
-                        pooling={pooling}
-                        cntWeight={cntWeight}
-                        styleWeight={styleWeight}
-                        TVWeight={TVWeight}
-                        TemporalWeight={TemporalWeight}
-                    />
-                </div>
+                    <div id="collage-gen-wrapper">
+                        <div id="collage-container"></div>
+                        <Generate 
+                            channel={channelName}
+                            socket={socket}
+                            socketConnected={socketConnected}
+                            inputFiles={inputFiles}
+                            checked={checked}
+                            pooling={pooling}
+                            styleWeight={styleWeight}
+                            TVWeight={TVWeight}
+                            TemporalWeight={TemporalWeight}
+                        />
+                        </div>
+                    </div>
             </React.Fragment>
 		);
 }

@@ -9,7 +9,6 @@ export const SlidersCompound = (props) => {
         setChecked,
         pooling,
         setPooling,
-        setCntWeight,
         setStyleWeight,
         setTVWeight,
         setTemporalWeight
@@ -22,10 +21,6 @@ export const SlidersCompound = (props) => {
 
     const handleChangePooling = (event) => {
         setPooling(event.target.value);
-    };
-
-    const handleChangeCntWeight = (event, newValue) => {
-        setCntWeight(newValue);
     };
     
     const handleChangeStyleWeight = (event, newValue) => {
@@ -62,20 +57,6 @@ export const SlidersCompound = (props) => {
     return (
         <React.Fragment>
             <div className="sliders-wrapper">
-                <Typography id="discrete-slider-small-steps" gutterBottom>
-                    Content weight
-                </Typography>
-                <Slider
-                    onChangeCommitted={handleChangeCntWeight}
-                    defaultValue={5}
-                    getAriaValueText={valuetext}
-                    aria-labelledby="discrete-slider-small-steps"
-                    step={1}
-                    marks
-                    min={1}
-                    max={20}
-                    valueLabelDisplay="auto"
-                />
                 <Typography id="discrete-slider-small-steps" gutterBottom>
                     Style weight
                 </Typography>

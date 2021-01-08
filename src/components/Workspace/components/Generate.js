@@ -7,7 +7,6 @@ export const Generate = (props) =>
     
     var {
         socket,
-        channelName,
         socketConnected,
         inputFiles,
         checked,
@@ -21,7 +20,6 @@ export const Generate = (props) =>
     const options = {
         checked,
         pooling,
-        cntWeight,
         styleWeight,
         TVWeight,
         TemporalWeight
@@ -30,7 +28,7 @@ export const Generate = (props) =>
     return (
         <React.Fragment>
         <div className="generate-button-container">
-            <div className="generate-button" onClick={() => sendServerRequest(socket, socketConnected, inputFiles, options)}><span>Send Request</span></div>
+            <div className="generate-button" id="generate-button-id" onClick={() => sendServerRequest(socket, socketConnected, inputFiles, options)}><span id='generate-button-text'>Generate image</span></div>
         </div>
         </React.Fragment>
     );
